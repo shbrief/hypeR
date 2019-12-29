@@ -26,24 +26,26 @@
 #' hyp_obj <- hyp$new(data, args=args)
 #'
 #' @importFrom R6 R6Class
+#' 
 #' @export
 hyp <- R6Class("hyp", list(
-  data  = NULL,
-  plots = NULL,
-  args  = NULL,
-  initialize = function(data, plots=NULL, args=NULL) {
-    self$data  <- data
-    self$plots <- plots
-    self$args  <- args
-  },
-  print = function(...) {
-    cat("hyp object: \n")
-    cat("  data: ", nrow(self$data), " x ", ncol(self$data), "\n", sep="")
-    cat("  plots: ", length(self$plots), "\n", sep="")
-    cat("  args: ", paste(names(self$args), collapse="\n        "), sep="")
-    invisible(self)
-  },
-  as.data.frame = function(...) {
-    self$data
-  }
+    data  = NULL,
+    plots = NULL,
+    args  = NULL,
+    initialize = function(data, plots=NULL, args=NULL) {
+        self$data  <- data
+        self$plots <- plots
+        self$args  <- args
+    },
+    print = function(...) {
+        cat("(hyp) \n\n")
+        cat("  data: \n")
+        base::print(head(self$data), row.names=FALSE)
+        cat(.format_str("\n  plots: {1} Figures\n\n", length(self$plots)))
+        cat(.format_str("  args: {1}", paste(names(self$args), collapse="\n        ")))
+        invisible(self)
+    },
+    as.data.frame = function(...) {
+        self$data
+    }
 ))

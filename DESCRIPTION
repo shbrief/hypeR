@@ -10,31 +10,31 @@ Depends: R (>= 3.6.0)
 License: GPL-3 + file LICENSE
 URL: https://github.com/montilab/hypeR
 Encoding: UTF-8
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 LazyData: true
 Imports:
     ggplot2,
     ggforce,
-    DT,
     R6,
     magrittr,
     dplyr,
     purrr,
     stats,
+    stringr,
     scales,
     rlang,
+    httr,
     openxlsx,
+    reactable,
     msigdbr,
     kableExtra,
     rmarkdown,
-    gh,
     igraph,
     visNetwork
-Suggests: 
+Suggests:
     devtools,
     testthat,
-    knitr,
-    httr
+    knitr
 biocViews: GeneSetEnrichment, Annotation, Pathways
 VignetteBuilder: knitr
 BugReports: https://github.com/montilab/hypeR/issues

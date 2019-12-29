@@ -4,8 +4,15 @@
 \alias{.kstest}
 \title{One-sided Kolmogorov–Smirnov test}
 \usage{
-.kstest(n.x, y, weights = NULL, weights.pwr = 1, absolute = FALSE,
-  do.plot = FALSE, plot.title = "")
+.kstest(
+  n.x,
+  y,
+  weights = NULL,
+  weights.pwr = 1,
+  absolute = FALSE,
+  plotting = FALSE,
+  plot.title = ""
+)
 }
 \arguments{
 \item{n.x}{The length of a ranked list}
@@ -18,7 +25,7 @@
 
 \item{absolute}{Takes max-min score rather than the max deviation from null}
 
-\item{do.plot}{Use true to generate plot}
+\item{plotting}{Use true to generate plot}
 
 \item{plot.title}{Plot title}
 }

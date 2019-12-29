@@ -4,20 +4,31 @@
 \alias{hyp_to_rmd}
 \title{Export hyp object to rmarkdown}
 \usage{
-hyp_to_rmd(hyp_obj, file_path, title = "hypeR Enrichment Report",
-  subtitle = "", author = "", header = "Enrichment",
-  show_dots = TRUE, show_emaps = TRUE, show_hmaps = FALSE,
-  show_tables = TRUE, hyp_dots_args = list(top = 15, val = "fdr"),
-  hyp_emap_args = list(top = 25, val = "fdr", similarity_metric =
-  "jaccard_similarity", similarity_cutoff = 0.2),
+hyp_to_rmd(
+  hyp_obj,
+  file_path,
+  title = "Workflow Report",
+  subtitle = "",
+  author = "",
+  header = "Results",
+  version = TRUE,
+  show_dots = TRUE,
+  show_emaps = TRUE,
+  show_hmaps = FALSE,
+  show_tables = TRUE,
+  hyp_dots_args = list(top = 15, val = "fdr"),
+  hyp_emap_args = list(top = 25, val = "fdr", similarity_metric = "jaccard_similarity",
+    similarity_cutoff = 0.2),
   hyp_hmap_args = list(top = 25, val = "fdr"),
-  custom_rmd_config = NULL, custom_pre_content = NULL,
-  custom_post_content = NULL)
+  custom_rmd_config = NULL,
+  custom_pre_content = NULL,
+  custom_post_content = NULL
+)
 }
 \arguments{
 \item{hyp_obj}{A hyp object, multihyp object, or list of multihyp objects}
 
-\item{file_path}{Output file path}
+\item{file_path}{A file path}
 
 \item{title}{Title of markdown report}
 
@@ -26,6 +37,8 @@ hyp_to_rmd(hyp_obj, file_path, title = "hypeR Enrichment Report",
 \item{author}{Authors of markdown report}
 
 \item{header}{Header name of tabset section}
+
+\item{version}{Add versioning information}
 
 \item{show_dots}{Option to show dots plots in tabs}
 
@@ -46,9 +59,6 @@ hyp_to_rmd(hyp_obj, file_path, title = "hypeR Enrichment Report",
 \item{custom_pre_content}{Insert custom content before tabset section}
 
 \item{custom_post_content}{Insert custom content after tabset section}
-}
-\value{
-None
 }
 \description{
 Export hyp object to rmarkdown

@@ -2,47 +2,55 @@
 % Please edit documentation in R/hype.R
 \name{hypeR}
 \alias{hypeR}
-\title{Perform hyper enrichment}
+\title{Calculate enrichment of one or more signatures}
 \usage{
-hypeR(signature, gsets, test = c("hypergeometric", "kstest"),
-  bg = 23467, pval_cutoff = 1, fdr_cutoff = 1, weights_pwr = 1,
-  absolute = FALSE, do_plots = FALSE, verbose = FALSE)
+hypeR(
+  signature,
+  genesets,
+  test = c("hypergeometric", "kstest"),
+  background = 23467,
+  power = 1,
+  absolute = FALSE,
+  pval = 1,
+  fdr = 1,
+  plotting = FALSE,
+  quiet = TRUE
+)
 }
 \arguments{
 \item{signature}{A vector of symbols}
 
-\item{gsets}{A list of genesets or a relational genesets object}
+\item{genesets}{A gsets/rgsets object or a named list of genesets}
 
 \item{test}{Choose an enrichment type e.g. c("hypergeometric", "kstest")}
 
-\item{bg}{Size or character vector of background population genes}
+\item{background}{Size or character vector of background population genes}
 
-\item{pval_cutoff}{Filter results to be less than pval cutoff}
+\item{power}{Exponent for weights (kstest only)}
 
-\item{fdr_cutoff}{Filter results to be less than fdr cutoff}
+\item{absolute}{Takes max-min score rather than the max deviation from null (kstest only)}
 
-\item{weights_pwr}{Exponent for weights (Subramanian et al.)}
+\item{pval}{Filter results to be less than pval cutoff}
 
-\item{absolute}{Takes max-min score rather than the max deviation from null}
+\item{fdr}{Filter results to be less than fdr cutoff}
 
-\item{do_plots}{Use true to generate plots}
+\item{plotting}{Use true to generate plots for each geneset test (may slow performance)}
 
-\item{verbose}{Use false to suppress logs}
+\item{quiet}{Use true to suppress logs and warnings}
 }
 \value{
 A hyp object
 }
 \description{
-Perform hyper enrichment
+Calculate enrichment of one or more signatures
 }
 \examples{
-gsets <- hyperdb_fetch(type="gsets", "KEGG_2019_Human")
+genesets <- msigdb_gsets("Homo sapiens", "C2", "CP:KEGG")
 
 signature <- c("IDH3B","DLST","PCK2","CS","PDHB","PCK1","PDHA1","LOC642502",
                "PDHA2","LOC283398","FH","SDHD","OGDH","SDHB","IDH3A","SDHC",
                "IDH2","IDH1","OGDHL","PC","SDHA","SUCLG1","SUCLA2","SUCLG2")
 
-# Perform hyper enrichment
-hyp_obj <- hypeR(signature, gsets, bg=2522, fdr_cutoff=0.05)
+hyp_obj <- hypeR(signature, genesets, background=2522)
 
 }
